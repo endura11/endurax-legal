@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EnduraX Salud — Política de Privacidad / Privacy Policy</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.7;
+      color: #1a1a2e;
+      background: #f8f9fa;
+      padding: 2rem 1rem;
+    }
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    }
+    h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
+      color: #0f3460;
+    }
+    .subtitle {
+      color: #666;
+      font-size: 0.95rem;
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #eee;
+      padding-bottom: 1rem;
+    }
+    h2 {
+      font-size: 1.25rem;
+      color: #0f3460;
+      margin-top: 2rem;
+      margin-bottom: 0.6rem;
+    }
+    p, li { font-size: 0.97rem; margin-bottom: 0.5rem; }
+    ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    table { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: 0.93rem; }
+    th, td { text-align: left; padding: 0.6rem 0.8rem; border-bottom: 1px solid #eee; }
+    th { background: #f0f4ff; color: #0f3460; font-weight: 600; }
+    .highlight {
+      background: #e8f5e9;
+      border-left: 4px solid #4caf50;
+      padding: 1rem 1.2rem;
+      margin: 1rem 0;
+      border-radius: 0 6px 6px 0;
+    }
+    .lang-toggle {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    .lang-toggle a {
+      color: #0f3460;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.3rem 0.8rem;
+      border: 1px solid #0f3460;
+      border-radius: 4px;
+      font-size: 0.85rem;
+    }
+    .lang-toggle a:hover { background: #0f3460; color: #fff; }
+    .section-en { display: none; }
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 1rem;
+      border-top: 1px solid #eee;
+      color: #999;
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lang-toggle">
+      <a href="#" onclick="toggleLang(); return false;" id="langBtn">English version</a>
+    </div>
+
+    <!-- ==================== SPANISH ==================== -->
+    <div id="section-es" class="section-es">
+      <h1>Política de Privacidad</h1>
+      <p class="subtitle">EnduraX Salud — Extensión de Chrome para protección de datos personales<br>
+      Última actualización: 24 de julio de 2026</p>
+
+      <div class="highlight">
+        <strong>Resumen:</strong> EnduraX Salud procesa toda la información de forma local en tu navegador.
+        Nunca accedemos, almacenamos ni transmitimos datos personales identificables (PII) a ningún servidor.
+      </div>
+
+      <h2>1. Qué hace EnduraX Salud</h2>
+      <p>EnduraX Salud es una extensión de Chrome que detecta y protege datos personales
+      (nombres, cédula, teléfonos, direcciones, etc.) antes de que sean enviados a plataformas
+      de inteligencia artificial como ChatGPT, Gemini y Claude.</p>
+      <p>La extensión reemplaza los datos sensibles con tokens anónimos (ej: <code>[NAME_1]</code>,
+      <code>[ID_2]</code>) para que el profesional de la salud pueda usar la IA sin exponer
+      información de sus pacientes.</p>
+
+      <h2>2. Procesamiento local (zero-knowledge)</h2>
+      <p>Todo el análisis de texto ocurre <strong>exclusivamente en tu navegador</strong>,
+      dentro de la extensión de Chrome. Esto significa que:</p>
+      <ul>
+        <li>Ningún texto, documento o dato personal sale de tu dispositivo</li>
+        <li>No tenemos servidores que procesen, almacenen o lean tu contenido</li>
+        <li>No usamos APIs externas de IA para la detección de PII</li>
+        <li>Los archivos PDF, DOCX y XLSX se procesan localmente y se descartan de memoria inmediatamente</li>
+      </ul>
+
+      <h2>3. Datos que recopilamos (feedback anónimo)</h2>
+      <p>Con tu consentimiento, la extensión envía <strong>métricas anónimas de detección</strong>
+      para mejorar la precisión del sistema. Estos datos <strong>nunca</strong> contienen el texto
+      original ni información identificable.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Dato recopilado</th>
+            <th>Ejemplo</th>
+            <th>Propósito</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tipo de token detectado</td>
+            <td>"NAME", "ID", "PHONE"</td>
+            <td>Saber qué tipos de datos se protegen más</td>
+          </tr>
+          <tr>
+            <td>Señal de detección</td>
+            <td>"label", "regex"</td>
+            <td>Evaluar qué método funciona mejor</td>
+          </tr>
+          <tr>
+            <td>Nivel de confianza</td>
+            <td>0.85</td>
+            <td>Identificar detecciones dudosas</td>
+          </tr>
+          <tr>
+            <td>Contexto recortado</td>
+            <td>"Paciente: [...]" (máx. 50 caracteres, sin el valor real)</td>
+            <td>Entender el patrón de texto alrededor</td>
+          </tr>
+          <tr>
+            <td>Plataforma usada</td>
+            <td>"chatgpt", "gemini"</td>
+            <td>Priorizar compatibilidad</td>
+          </tr>
+          <tr>
+            <td>Tipo de documento</td>
+            <td>"laboratorio", "concepto ocupacional", "consulta"</td>
+            <td>Mejorar detección por tipo</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>Lo que nunca se recopila:</strong></p>
+      <ul>
+        <li>Nombres, apellidos, cédula, teléfonos, direcciones ni ningún dato personal</li>
+        <li>El texto original del documento</li>
+        <li>Contenido de las conversaciones con la IA</li>
+        <li>Historial de navegación</li>
+        <li>Dirección IP identificable (no almacenamos IPs)</li>
+      </ul>
+
+      <h2>4. Permisos de Chrome</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Permiso</th>
+            <th>Justificación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>activeTab</code></td>
+            <td>Leer y proteger el texto en la pestaña activa de la plataforma de IA</td>
+          </tr>
+          <tr>
+            <td><code>storage</code></td>
+            <td>Guardar configuración y métricas locales de la extensión</td>
+          </tr>
+          <tr>
+            <td><code>alarms</code></td>
+            <td>Programar el envío periódico de feedback anónimo</td>
+          </tr>
+          <tr>
+            <td><code>offscreen</code></td>
+            <td>Procesar archivos PDF en segundo plano sin afectar la navegación</td>
+          </tr>
+          <tr>
+            <td><code>identity</code></td>
+            <td>Autenticación de usuarios mediante Google OAuth para la gestión de licencias</td>
+          </tr>
+          <tr>
+            <td>Acceso a sitios de IA</td>
+            <td>Necesario para funcionar en ChatGPT, Gemini y Claude</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>4b. Terceros y uso compartido de datos</h2>
+      <p>EnduraX Salud comparte datos únicamente con los siguientes terceros, en los términos descritos:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Tercero</th>
+            <th>Datos compartidos</th>
+            <th>Propósito</th>
+            <th>Ubicación</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Supabase</strong> (supabase.com)</td>
+            <td>Métricas anónimas de detección (tipo de token, señal, confianza, plataforma, tipo de documento). Nunca datos personales ni texto original.</td>
+            <td>Almacenamiento de feedback anónimo para mejorar la precisión del sistema</td>
+            <td>Unión Europea</td>
+          </tr>
+          <tr>
+            <td><strong>Google OAuth</strong> (accounts.google.com)</td>
+            <td>Email y nombre de cuenta Google, únicamente si el usuario inicia sesión con Google para gestionar su licencia</td>
+            <td>Autenticación y gestión de licencias</td>
+            <td>Estados Unidos (Google LLC)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>No compartimos datos con ningún otro tercero.</strong> No vendemos, alquilamos ni cedemos datos de usuarios a anunciantes, brokers de datos ni otras entidades.</p>
+
+      <h2>5. Almacenamiento de datos</h2>
+      <p>Las métricas anónimas se almacenan en Supabase (infraestructura en la Unión Europea).
+      Los datos no contienen PII y se utilizan exclusivamente para mejorar la precisión de detección.</p>
+      <p>Los datos locales (configuración, métricas pendientes) se almacenan en
+      <code>chrome.storage.local</code> y se pueden eliminar desinstalando la extensión.</p>
+
+      <h2>6. Tus derechos (Ley 1581 de 2012 — Habeas Data)</h2>
+      <p>EnduraX Salud opera conforme al régimen colombiano de protección de datos personales
+      (Ley 1581 de 2012 y sus decretos reglamentarios). Como los datos de feedback son anónimos
+      y no identificables, no constituyen datos personales bajo dicho régimen. Aun así, respetamos
+      tu control y los derechos que la ley te reconoce (conocer, actualizar, rectificar, suprimir
+      tus datos y revocar la autorización):</p>
+      <ul>
+        <li><strong>Desactivar el feedback:</strong> Puedes desactivar el envío de métricas en
+        cualquier momento desde la configuración de la extensión</li>
+        <li><strong>Eliminar datos locales:</strong> Desinstalar la extensión elimina todos
+        los datos almacenados localmente</li>
+        <li><strong>Consultas y reclamos:</strong> Puedes contactarnos para cualquier consulta
+        sobre tus datos. La autoridad de control en Colombia es la Superintendencia de Industria
+        y Comercio (SIC)</li>
+      </ul>
+
+      <h2>7. Seguridad</h2>
+      <ul>
+        <li>Comunicación cifrada con TLS 1.3 para el envío de feedback</li>
+        <li>Compresión gzip del payload para minimizar la superficie de transmisión</li>
+        <li>Identificadores anónimos (UUID aleatorio por instalación, sin vínculo a identidad)</li>
+        <li>Rate limiting para prevenir abuso</li>
+      </ul>
+
+      <h2>8. Menores de edad</h2>
+      <p>EnduraX Salud está diseñada para profesionales de la salud. No está dirigida a menores
+      de edad ni recopila datos de menores de forma intencionada.</p>
+
+      <h2>9. Cambios en esta política</h2>
+      <p>Si modificamos esta política, actualizaremos la fecha en la parte superior.
+      Los cambios significativos se notificarán a través de la extensión.</p>
+
+      <h2>10. Contacto</h2>
+      <p>Para consultas sobre privacidad:</p>
+      <p><strong>Email:</strong> hello@endurax.net</p>
+    </div>
+
+    <!-- ==================== ENGLISH ==================== -->
+    <div id="section-en" class="section-en">
+      <h1>Privacy Policy</h1>
+      <p class="subtitle">EnduraX Salud — Chrome Extension for personal data protection<br>
+      Last updated: July 24, 2026</p>
+
+      <div class="highlight">
+        <strong>Summary:</strong> EnduraX Salud processes all information locally in your browser.
+        We never access, store, or transmit personally identifiable information (PII) to any server.
+      </div>
+
+      <h2>1. What EnduraX Salud does</h2>
+      <p>EnduraX Salud is a Chrome extension that detects and protects personal data
+      (names, national IDs, phone numbers, addresses, etc.) before they are sent to AI
+      platforms such as ChatGPT, Gemini, and Claude.</p>
+      <p>The extension replaces sensitive data with anonymous tokens (e.g., <code>[NAME_1]</code>,
+      <code>[ID_2]</code>) so healthcare professionals can use AI without exposing
+      patient information.</p>
+
+      <h2>2. Local processing (zero-knowledge)</h2>
+      <p>All text analysis happens <strong>exclusively in your browser</strong>,
+      within the Chrome extension. This means:</p>
+      <ul>
+        <li>No text, document, or personal data ever leaves your device</li>
+        <li>We have no servers that process, store, or read your content</li>
+        <li>We do not use external AI APIs for PII detection</li>
+        <li>PDF, DOCX, and XLSX files are processed locally and immediately discarded from memory</li>
+      </ul>
+
+      <h2>3. Data we collect (anonymous feedback)</h2>
+      <p>With your consent, the extension sends <strong>anonymous detection metrics</strong>
+      to improve system accuracy. This data <strong>never</strong> contains the original text
+      or identifiable information.</p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Data collected</th>
+            <th>Example</th>
+            <th>Purpose</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Detected token type</td>
+            <td>"NAME", "ID", "PHONE"</td>
+            <td>Know which data types are most protected</td>
+          </tr>
+          <tr>
+            <td>Detection signal</td>
+            <td>"label", "regex"</td>
+            <td>Evaluate which method works best</td>
+          </tr>
+          <tr>
+            <td>Confidence level</td>
+            <td>0.85</td>
+            <td>Identify uncertain detections</td>
+          </tr>
+          <tr>
+            <td>Trimmed context</td>
+            <td>"Patient: [...]" (max 50 chars, without the actual value)</td>
+            <td>Understand the text pattern around the detection</td>
+          </tr>
+          <tr>
+            <td>Platform used</td>
+            <td>"chatgpt", "gemini"</td>
+            <td>Prioritize compatibility</td>
+          </tr>
+          <tr>
+            <td>Document type</td>
+            <td>"lab", "occupational assessment", "consultation"</td>
+            <td>Improve detection by type</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p><strong>What we never collect:</strong></p>
+      <ul>
+        <li>Names, national IDs, phone numbers, addresses, or any personal data</li>
+        <li>The original document text</li>
+        <li>Content of AI conversations</li>
+        <li>Browsing history</li>
+        <li>Identifiable IP addresses (we do not store IPs)</li>
+      </ul>
+
+      <h2>4. Chrome permissions</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Permission</th>
+            <th>Justification</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>activeTab</code></td>
+            <td>Read and protect text on the active AI platform tab</td>
+          </tr>
+          <tr>
+            <td><code>storage</code></td>
+            <td>Store extension settings and local metrics</td>
+          </tr>
+          <tr>
+            <td><code>alarms</code></td>
+            <td>Schedule periodic anonymous feedback submission</td>
+          </tr>
+          <tr>
+            <td><code>offscreen</code></td>
+            <td>Process PDF files in the background without affecting browsing</td>
+          </tr>
+          <tr>
+            <td><code>identity</code></td>
+            <td>User authentication via Google OAuth for license management</td>
+          </tr>
+          <tr>
+            <td>AI site access</td>
+            <td>Required to operate on ChatGPT, Gemini, and Claude</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>4b. Third parties and data sharing</h2>
+      <p>EnduraX Salud shares data only with the following third parties, under the terms described:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Third party</th>
+            <th>Data shared</th>
+            <th>Purpose</th>
+            <th>Location</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Supabase</strong> (supabase.com)</td>
+            <td>Anonymous detection metrics (token type, signal, confidence, platform, document type). Never personal data or original text.</td>
+            <td>Storage of anonymous feedback to improve system accuracy</td>
+            <td>European Union</td>
+          </tr>
+          <tr>
+            <td><strong>Google OAuth</strong> (accounts.google.com)</td>
+            <td>Google account email and name, only if the user signs in with Google to manage their license</td>
+            <td>Authentication and license management</td>
+            <td>United States (Google LLC)</td>
+          </tr>
+        </tbody>
+      </table>
+      <p><strong>We do not share data with any other third party.</strong> We do not sell, rent, or transfer user data to advertisers, data brokers, or other entities.</p>
+
+      <h2>5. Data storage</h2>
+      <p>Anonymous metrics are stored in Supabase (EU infrastructure).
+      The data contains no PII and is used exclusively to improve detection accuracy.</p>
+      <p>Local data (settings, pending metrics) are stored in
+      <code>chrome.storage.local</code> and can be deleted by uninstalling the extension.</p>
+
+      <h2>6. Your rights (Colombia — Law 1581 of 2012)</h2>
+      <p>EnduraX Salud operates under Colombia's personal data protection regime
+      (Law 1581 of 2012, "Habeas Data"). Since feedback data is anonymous and non-identifiable,
+      it does not constitute personal data under that regime. Nonetheless, we respect your control
+      and the rights the law grants you (to know, update, rectify, and delete your data, and to
+      revoke consent):</p>
+      <ul>
+        <li><strong>Disable feedback:</strong> You can disable metric submission at any time
+        from the extension settings</li>
+        <li><strong>Delete local data:</strong> Uninstalling the extension removes all
+        locally stored data</li>
+        <li><strong>Inquiries and complaints:</strong> You can contact us with any questions
+        about your data. The supervisory authority in Colombia is the Superintendency of
+        Industry and Commerce (SIC)</li>
+      </ul>
+
+      <h2>7. Security</h2>
+      <ul>
+        <li>TLS 1.3 encrypted communication for feedback submission</li>
+        <li>Gzip payload compression to minimize transmission surface</li>
+        <li>Anonymous identifiers (random UUID per installation, no link to identity)</li>
+        <li>Rate limiting to prevent abuse</li>
+      </ul>
+
+      <h2>8. Children</h2>
+      <p>EnduraX Salud is designed for healthcare professionals. It is not directed at minors
+      and does not intentionally collect data from minors.</p>
+
+      <h2>9. Changes to this policy</h2>
+      <p>If we modify this policy, we will update the date at the top.
+      Significant changes will be communicated through the extension.</p>
+
+      <h2>10. Contact</h2>
+      <p>For privacy inquiries:</p>
+      <p><strong>Email:</strong> hello@endurax.net</p>
+    </div>
+
+    <footer>
+      &copy; 2026 Endura. Todos los derechos reservados.
+    </footer>
+  </div>
+
+  <script>
+    function toggleLang() {
+      var es = document.getElementById('section-es');
+      var en = document.getElementById('section-en');
+      var btn = document.getElementById('langBtn');
+      if (es.style.display === 'none') {
+        es.style.display = 'block';
+        en.style.display = 'none';
+        btn.textContent = 'English version';
+      } else {
+        es.style.display = 'none';
+        en.style.display = 'block';
+        btn.textContent = 'Versión en español';
+      }
+    }
+  </script>
+</body>
+</html>
