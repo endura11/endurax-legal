@@ -111,60 +111,22 @@
         <li>Los archivos PDF, DOCX y XLSX se procesan localmente y se descartan de memoria inmediatamente</li>
       </ul>
 
-      <h2>3. Datos que recopilamos (feedback anónimo)</h2>
-      <p>Con tu consentimiento, la extensión envía <strong>métricas anónimas de detección</strong>
-      para mejorar la precisión del sistema. Estos datos <strong>nunca</strong> contienen el texto
-      original ni información identificable.</p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Dato recopilado</th>
-            <th>Ejemplo</th>
-            <th>Propósito</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Tipo de token detectado</td>
-            <td>"NAME", "ID", "PHONE"</td>
-            <td>Saber qué tipos de datos se protegen más</td>
-          </tr>
-          <tr>
-            <td>Señal de detección</td>
-            <td>"label", "regex"</td>
-            <td>Evaluar qué método funciona mejor</td>
-          </tr>
-          <tr>
-            <td>Nivel de confianza</td>
-            <td>0.85</td>
-            <td>Identificar detecciones dudosas</td>
-          </tr>
-          <tr>
-            <td>Contexto recortado</td>
-            <td>"Paciente: [...]" (máx. 50 caracteres, sin el valor real)</td>
-            <td>Entender el patrón de texto alrededor</td>
-          </tr>
-          <tr>
-            <td>Plataforma usada</td>
-            <td>"chatgpt", "gemini"</td>
-            <td>Priorizar compatibilidad</td>
-          </tr>
-          <tr>
-            <td>Tipo de documento</td>
-            <td>"laboratorio", "concepto ocupacional", "consulta"</td>
-            <td>Mejorar detección por tipo</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2>3. Datos que recopilamos (métricas anónimas)</h2>
+      <p>Con tu consentimiento, la extensión envía <strong>métricas técnicas anónimas</strong> sobre
+      el rendimiento y la calidad de la detección, con el único fin de mejorar el sistema. Estas
+      métricas <strong>no permiten identificar a ninguna persona</strong> ni reconstruir la
+      información original.</p>
+      <p>A modo de ejemplo, estas métricas nos ayudan a entender qué tan bien funciona la detección
+      en distintos tipos de documento y plataformas de IA, para priorizar mejoras. En ningún caso
+      incluyen el valor de los datos personales.</p>
 
       <p><strong>Lo que nunca se recopila:</strong></p>
       <ul>
-        <li>Nombres, apellidos, cédula, teléfonos, direcciones ni ningún dato personal</li>
-        <li>El texto original del documento</li>
-        <li>Contenido de las conversaciones con la IA</li>
-        <li>Historial de navegación</li>
-        <li>Dirección IP identificable (no almacenamos IPs)</li>
+        <li>Nombres, apellidos, cédula, teléfonos, direcciones ni ningún dato personal identificable</li>
+        <li>El contenido de tus documentos</li>
+        <li>El contenido de tus conversaciones con la IA</li>
+        <li>Tu historial de navegación</li>
+        <li>Direcciones IP identificables (no almacenamos IPs)</li>
       </ul>
 
       <h2>4. Permisos de Chrome</h2>
@@ -217,8 +179,8 @@
         <tbody>
           <tr>
             <td><strong>Supabase</strong> (supabase.com)</td>
-            <td>Métricas anónimas de detección (tipo de token, señal, confianza, plataforma, tipo de documento). Nunca datos personales ni texto original.</td>
-            <td>Almacenamiento de feedback anónimo para mejorar la precisión del sistema</td>
+            <td>Métricas técnicas anónimas sobre el rendimiento y la calidad de la detección. Nunca datos personales identificables ni el contenido original.</td>
+            <td>Almacenamiento de métricas anónimas para mejorar la precisión del sistema</td>
             <td>Unión Europea</td>
           </tr>
           <tr>
@@ -303,59 +265,20 @@
         <li>PDF, DOCX, and XLSX files are processed locally and immediately discarded from memory</li>
       </ul>
 
-      <h2>3. Data we collect (anonymous feedback)</h2>
-      <p>With your consent, the extension sends <strong>anonymous detection metrics</strong>
-      to improve system accuracy. This data <strong>never</strong> contains the original text
-      or identifiable information.</p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Data collected</th>
-            <th>Example</th>
-            <th>Purpose</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Detected token type</td>
-            <td>"NAME", "ID", "PHONE"</td>
-            <td>Know which data types are most protected</td>
-          </tr>
-          <tr>
-            <td>Detection signal</td>
-            <td>"label", "regex"</td>
-            <td>Evaluate which method works best</td>
-          </tr>
-          <tr>
-            <td>Confidence level</td>
-            <td>0.85</td>
-            <td>Identify uncertain detections</td>
-          </tr>
-          <tr>
-            <td>Trimmed context</td>
-            <td>"Patient: [...]" (max 50 chars, without the actual value)</td>
-            <td>Understand the text pattern around the detection</td>
-          </tr>
-          <tr>
-            <td>Platform used</td>
-            <td>"chatgpt", "gemini"</td>
-            <td>Prioritize compatibility</td>
-          </tr>
-          <tr>
-            <td>Document type</td>
-            <td>"lab", "occupational assessment", "consultation"</td>
-            <td>Improve detection by type</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2>3. Data we collect (anonymous metrics)</h2>
+      <p>With your consent, the extension sends <strong>anonymous technical metrics</strong> about
+      detection performance and quality, for the sole purpose of improving the system. These metrics
+      <strong>cannot identify any individual</strong> nor reconstruct the original information.</p>
+      <p>As an example, these metrics help us understand how well detection performs across
+      different document types and AI platforms, so we can prioritize improvements. They never
+      include the value of personal data.</p>
 
       <p><strong>What we never collect:</strong></p>
       <ul>
-        <li>Names, national IDs, phone numbers, addresses, or any personal data</li>
-        <li>The original document text</li>
-        <li>Content of AI conversations</li>
-        <li>Browsing history</li>
+        <li>Names, national IDs, phone numbers, addresses, or any identifiable personal data</li>
+        <li>The content of your documents</li>
+        <li>The content of your AI conversations</li>
+        <li>Your browsing history</li>
         <li>Identifiable IP addresses (we do not store IPs)</li>
       </ul>
 
@@ -409,8 +332,8 @@
         <tbody>
           <tr>
             <td><strong>Supabase</strong> (supabase.com)</td>
-            <td>Anonymous detection metrics (token type, signal, confidence, platform, document type). Never personal data or original text.</td>
-            <td>Storage of anonymous feedback to improve system accuracy</td>
+            <td>Anonymous technical metrics about detection performance and quality. Never identifiable personal data or original content.</td>
+            <td>Storage of anonymous metrics to improve system accuracy</td>
             <td>European Union</td>
           </tr>
           <tr>
