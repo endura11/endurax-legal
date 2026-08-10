@@ -89,45 +89,93 @@
       Última actualización: 24 de julio de 2026</p>
 
       <div class="highlight">
-        <strong>Resumen:</strong> EnduraX Salud procesa toda la información de forma local en tu navegador.
-        Nunca accedemos, almacenamos ni transmitimos datos personales identificables (PII) a ningún servidor.
+        <strong>Resumen:</strong> EnduraX Salud detecta y reemplaza los datos personales de forma
+        local en tu navegador. Tus documentos nunca se suben a nuestros servidores, y los valores
+        de los datos personales no salen de tu dispositivo.
       </div>
 
       <h2>1. Qué hace EnduraX Salud</h2>
       <p>EnduraX Salud es una extensión de Chrome que detecta y protege datos personales
       (nombres, cédula, teléfonos, direcciones, etc.) antes de que sean enviados a plataformas
-      de inteligencia artificial como ChatGPT, Gemini y Claude.</p>
+      de inteligencia artificial. Esta versión funciona sobre ChatGPT.</p>
       <p>La extensión reemplaza los datos sensibles con tokens anónimos (ej: <code>[NAME_1]</code>,
       <code>[ID_2]</code>) para que el profesional de la salud pueda usar la IA sin exponer
       información de sus pacientes.</p>
 
-      <h2>2. Procesamiento local (zero-knowledge)</h2>
-      <p>Todo el análisis de texto ocurre <strong>exclusivamente en tu navegador</strong>,
-      dentro de la extensión de Chrome. Esto significa que:</p>
+      <h2>2. Procesamiento local</h2>
+      <p>Todo el análisis y la detección de datos personales ocurren
+      <strong>exclusivamente en tu navegador</strong>, dentro de la extensión de Chrome. Esto
+      significa que:</p>
       <ul>
-        <li>Ningún texto, documento o dato personal sale de tu dispositivo</li>
-        <li>No tenemos servidores que procesen, almacenen o lean tu contenido</li>
-        <li>No usamos APIs externas de IA para la detección de PII</li>
-        <li>Los archivos PDF, DOCX y XLSX se procesan localmente y se descartan de memoria inmediatamente</li>
+        <li><strong>Tus documentos nunca se suben a ningún servidor nuestro.</strong> No tenemos
+        servidores que reciban, almacenen o lean tus archivos ni tus conversaciones</li>
+        <li>No usamos APIs externas de IA para la detección de datos personales: el motor de
+        detección se ejecuta entero en tu equipo</li>
+        <li>Los archivos PDF, DOCX y XLSX se procesan localmente y se descartan de memoria
+        inmediatamente</li>
+        <li>Los valores de los datos personales (nombres, cédulas, teléfonos…) no salen nunca de
+        tu dispositivo: se sustituyen por tokens antes de llegar a la plataforma de IA y solo tu
+        navegador conoce la correspondencia</li>
       </ul>
+      <p>Sí salen de tu equipo las <strong>métricas anónimas</strong> descritas en el punto 3, que
+      incluyen fragmentos cortos de texto <em>ya anonimizado</em> alrededor de cada detección. Se
+      explica en detalle ahí para que puedas juzgarlo con criterio, en lugar de leer una promesa
+      absoluta que la sección 3 contradiga.</p>
 
       <h2>3. Datos que recopilamos (métricas anónimas)</h2>
-      <p>Con tu consentimiento, la extensión envía <strong>métricas técnicas anónimas</strong> sobre
-      el rendimiento y la calidad de la detección, con el único fin de mejorar el sistema. Estas
-      métricas <strong>no permiten identificar a ninguna persona</strong> ni reconstruir la
-      información original.</p>
-      <p>A modo de ejemplo, estas métricas nos ayudan a entender qué tan bien funciona la detección
-      en distintos tipos de documento y plataformas de IA, para priorizar mejoras. En ningún caso
-      incluyen el valor de los datos personales.</p>
+      <p>Para saber si la protección funciona bien y poder mejorarla, la extensión envía
+      <strong>mediciones técnicas anónimas</strong>, parecidas a las estadísticas de uso de
+      cualquier aplicación. <strong>No permiten identificar a ninguna persona</strong> ni
+      reconstruir la información original.</p>
+      <p>Este envío forma parte del funcionamiento de la extensión y <strong>no puede
+      desactivarse</strong>: es lo que permite medir si la protección está detectando bien y
+      corregirla cuando no. No es publicidad ni analítica comercial, y los datos no se comparten
+      con terceros ni se usan para ningún otro fin. Al instalar y activar la extensión, tu
+      organización acepta este tratamiento.</p>
+      <p>Estas métricas nos permiten saber si la detección está funcionando en documentos reales
+      —dónde falla, con qué tipo de dato y en qué clase de documento— para corregirla. A
+      continuación se detalla exactamente qué se envía.</p>
 
-      <p><strong>Lo que nunca se recopila:</strong></p>
+      <p><strong>a) Calidad de la detección.</strong> Por cada dato detectado y sustituido por un
+      token:</p>
       <ul>
-        <li>Nombres, apellidos, cédula, teléfonos, direcciones ni ningún dato personal identificable</li>
-        <li>El contenido de tus documentos</li>
+        <li><strong>Qué tipo de dato era</strong> (nombre, cédula, teléfono, correo…),
+        <strong>nunca su valor</strong>. Del original solo viaja su longitud en caracteres</li>
+        <li><strong>Cómo se detectó:</strong> qué señal lo encontró (una etiqueta del documento, un
+        patrón, una heurística) y con qué nivel de confianza</li>
+        <li><strong>Dónde estaba:</strong> posición en el documento, si iba dentro de una tabla, en
+        qué sección, y su <em>geometría</em> — tamaño de letra, negrita, posición en la página.
+        Esto es lo que distingue el membrete de un hospital del nombre de un paciente</li>
+        <li><strong>Un microcontexto muy corto</strong> (unos 15 a 20 caracteres antes y después),
+        tomado del texto <strong>ya anonimizado</strong>: donde estaba el dato aparece el token.
+        Por ejemplo, se envía <code>"Paciente: [NAME_1], cédula"</code>, nunca el nombre real</li>
+      </ul>
+
+      <p><strong>b) Características del documento.</strong> Sin su contenido: número de páginas,
+      densidad de datos personales, proporción de cifras, idioma, tipo de documento (laboratorio,
+      concepto ocupacional…), departamento y, cuando el documento lo indica, el nombre de la
+      institución emisora. También las <strong>palabras que funcionan como etiqueta</strong> (las
+      que preceden a un dato, como «Paciente:» o «Identificación:»), que es como el sistema aprende
+      a reconocer formatos nuevos.</p>
+
+      <p><strong>c) Uso de la extensión.</strong> Contadores de acciones: cuántos documentos se
+      protegieron, cuántas veces se abrió el panel o se pausó la protección. Solo números.</p>
+
+      <p><strong>Lo que nunca sale de tu equipo:</strong></p>
+      <ul>
+        <li><strong>El valor de ningún dato personal:</strong> ni nombres, ni apellidos, ni cédulas,
+        ni teléfonos, ni direcciones, ni fechas de nacimiento, ni diagnósticos</li>
+        <li>El texto completo de tus documentos, ni una porción que permita reconstruirlos</li>
         <li>El contenido de tus conversaciones con la IA</li>
         <li>Tu historial de navegación</li>
-        <li>Direcciones IP identificables (no almacenamos IPs)</li>
+        <li>Tu dirección IP. El servidor deduce únicamente el país a partir de la conexión, para
+        separar las métricas de Colombia de las de España, y no la almacena</li>
       </ul>
+
+      <p>Por eso consideramos estas métricas <strong>anónimas</strong>: no contienen datos
+      personales de tus pacientes ni permiten reconstruirlos, de modo que no constituyen
+      información personal bajo la Ley 1581 de 2012. Van asociadas a un identificador aleatorio de
+      instalación, no a tu identidad.</p>
 
       <h2>4. Permisos de Chrome</h2>
       <table>
@@ -160,7 +208,7 @@
           </tr>
           <tr>
             <td>Acceso a sitios de IA</td>
-            <td>Necesario para funcionar en ChatGPT, Gemini y Claude</td>
+            <td>Necesario para funcionar en ChatGPT</td>
           </tr>
         </tbody>
       </table>
@@ -206,8 +254,10 @@
       tu control y los derechos que la ley te reconoce (conocer, actualizar, rectificar, suprimir
       tus datos y revocar la autorización):</p>
       <ul>
-        <li><strong>Desactivar el feedback:</strong> Puedes desactivar el envío de métricas en
-        cualquier momento desde la configuración de la extensión</li>
+        <li><strong>Dejar de enviar métricas:</strong> El envío de métricas anónimas es parte del
+        funcionamiento de la extensión y no tiene interruptor. Para dejar de enviarlas, desinstala
+        la extensión o pide a tu organización que dé de baja la licencia: sin licencia activa la
+        extensión queda inerte y no recopila ni envía nada</li>
         <li><strong>Eliminar datos locales:</strong> Desinstalar la extensión elimina todos
         los datos almacenados localmente</li>
         <li><strong>Consultas y reclamos:</strong> Puedes contactarnos para cualquier consulta
@@ -243,44 +293,89 @@
       Last updated: July 24, 2026</p>
 
       <div class="highlight">
-        <strong>Summary:</strong> EnduraX Salud processes all information locally in your browser.
-        We never access, store, or transmit personally identifiable information (PII) to any server.
+        <strong>Summary:</strong> EnduraX Salud detects and replaces personal data locally in your
+        browser. Your documents are never uploaded to our servers, and the values of personal data
+        never leave your device.
       </div>
 
       <h2>1. What EnduraX Salud does</h2>
       <p>EnduraX Salud is a Chrome extension that detects and protects personal data
       (names, national IDs, phone numbers, addresses, etc.) before they are sent to AI
-      platforms such as ChatGPT, Gemini, and Claude.</p>
+      platforms. This version works on ChatGPT.</p>
       <p>The extension replaces sensitive data with anonymous tokens (e.g., <code>[NAME_1]</code>,
       <code>[ID_2]</code>) so healthcare professionals can use AI without exposing
       patient information.</p>
 
-      <h2>2. Local processing (zero-knowledge)</h2>
-      <p>All text analysis happens <strong>exclusively in your browser</strong>,
-      within the Chrome extension. This means:</p>
+      <h2>2. Local processing</h2>
+      <p>All analysis and detection of personal data happen <strong>exclusively in your
+      browser</strong>, within the Chrome extension. This means:</p>
       <ul>
-        <li>No text, document, or personal data ever leaves your device</li>
-        <li>We have no servers that process, store, or read your content</li>
-        <li>We do not use external AI APIs for PII detection</li>
+        <li><strong>Your documents are never uploaded to any server of ours.</strong> We have no
+        servers that receive, store, or read your files or your conversations</li>
+        <li>We do not use external AI APIs for personal data detection: the detection engine runs
+        entirely on your machine</li>
         <li>PDF, DOCX, and XLSX files are processed locally and immediately discarded from memory</li>
+        <li>The values of personal data (names, national IDs, phone numbers…) never leave your
+        device: they are replaced by tokens before reaching the AI platform, and only your browser
+        knows the mapping</li>
       </ul>
+      <p>What does leave your machine are the <strong>anonymous metrics</strong> described in
+      section 3, which include short fragments of <em>already anonymized</em> text around each
+      detection. They are spelled out there so you can judge them on the facts, rather than read an
+      absolute promise that section 3 would contradict.</p>
 
       <h2>3. Data we collect (anonymous metrics)</h2>
-      <p>With your consent, the extension sends <strong>anonymous technical metrics</strong> about
-      detection performance and quality, for the sole purpose of improving the system. These metrics
-      <strong>cannot identify any individual</strong> nor reconstruct the original information.</p>
-      <p>As an example, these metrics help us understand how well detection performs across
-      different document types and AI platforms, so we can prioritize improvements. They never
-      include the value of personal data.</p>
+      <p>To know whether protection is working well and be able to improve it, the extension sends
+      <strong>anonymous technical metrics</strong>, similar to the usage statistics of any app.
+      They <strong>cannot identify any individual</strong> nor reconstruct the original
+      information.</p>
+      <p>This submission is part of how the extension works and <strong>cannot be turned
+      off</strong>: it is what lets us measure whether protection is detecting correctly and fix it
+      when it is not. It is not advertising or commercial analytics, and the data is neither shared
+      with third parties nor used for any other purpose. By installing and activating the
+      extension, your organization accepts this processing.</p>
+      <p>These metrics let us know whether detection is working on real documents — where it fails,
+      on which kind of data and in which kind of document — so we can fix it. Exactly what is sent
+      is detailed below.</p>
 
-      <p><strong>What we never collect:</strong></p>
+      <p><strong>a) Detection quality.</strong> For each item detected and replaced by a token:</p>
       <ul>
-        <li>Names, national IDs, phone numbers, addresses, or any identifiable personal data</li>
-        <li>The content of your documents</li>
+        <li><strong>What kind of data it was</strong> (name, national ID, phone, email…),
+        <strong>never its value</strong>. Of the original, only its length in characters is sent</li>
+        <li><strong>How it was detected:</strong> which signal found it (a label in the document, a
+        pattern, a heuristic) and with what confidence</li>
+        <li><strong>Where it was:</strong> position in the document, whether it sat inside a table,
+        in which section, and its <em>geometry</em> — font size, boldness, position on the page.
+        This is what tells a hospital letterhead apart from a patient's name</li>
+        <li><strong>A very short micro-context</strong> (about 15 to 20 characters before and after), taken
+        from the <strong>already anonymized</strong> text: where the data was, the token appears.
+        For example we send <code>"Patient: [NAME_1], ID"</code>, never the real name</li>
+      </ul>
+
+      <p><strong>b) Document characteristics.</strong> Without its content: page count, density of
+      personal data, proportion of digits, language, document type (lab report, occupational
+      assessment…), region and, when the document states it, the name of the issuing institution.
+      Also the <strong>words that act as labels</strong> (those preceding a value, such as
+      "Patient:" or "ID:"), which is how the system learns to recognize new formats.</p>
+
+      <p><strong>c) Extension usage.</strong> Action counters: how many documents were protected,
+      how many times the panel was opened or protection was paused. Numbers only.</p>
+
+      <p><strong>What never leaves your device:</strong></p>
+      <ul>
+        <li><strong>The value of any personal data:</strong> no names, no surnames, no national IDs,
+        no phone numbers, no addresses, no dates of birth, no diagnoses</li>
+        <li>The full text of your documents, nor any portion allowing them to be reconstructed</li>
         <li>The content of your AI conversations</li>
         <li>Your browsing history</li>
-        <li>Identifiable IP addresses (we do not store IPs)</li>
+        <li>Your IP address. The server only infers the country from the connection, to keep
+        Colombian and Spanish metrics apart, and does not store it</li>
       </ul>
+
+      <p>This is why we consider these metrics <strong>anonymous</strong>: they contain no personal
+      data about your patients and do not allow it to be reconstructed, so they do not constitute
+      personal information under Colombia's Law 1581 of 2012. They are tied to a random
+      installation identifier, not to your identity.</p>
 
       <h2>4. Chrome permissions</h2>
       <table>
@@ -313,7 +408,7 @@
           </tr>
           <tr>
             <td>AI site access</td>
-            <td>Required to operate on ChatGPT, Gemini, and Claude</td>
+            <td>Required to operate on ChatGPT</td>
           </tr>
         </tbody>
       </table>
@@ -359,8 +454,10 @@
       and the rights the law grants you (to know, update, rectify, and delete your data, and to
       revoke consent):</p>
       <ul>
-        <li><strong>Disable feedback:</strong> You can disable metric submission at any time
-        from the extension settings</li>
+        <li><strong>Stop sending metrics:</strong> Anonymous metric submission is part of how the
+        extension works and has no toggle. To stop it, uninstall the extension or ask your
+        organization to end the licence: without an active licence the extension is inert and
+        neither collects nor sends anything</li>
         <li><strong>Delete local data:</strong> Uninstalling the extension removes all
         locally stored data</li>
         <li><strong>Inquiries and complaints:</strong> You can contact us with any questions
