@@ -141,20 +141,15 @@
       <ul>
         <li><strong>Qué tipo de dato era</strong> (nombre, cédula, teléfono, correo…),
         <strong>nunca su valor</strong>. Del original solo viaja su longitud en caracteres</li>
-        <li><strong>Cómo se detectó:</strong> el tipo de señal técnica que lo encontró y con qué
-        nivel de confianza</li>
-        <li><strong>Dónde estaba:</strong> su posición y formato dentro del documento (por ejemplo,
-        si iba en una tabla o en qué sección)</li>
-        <li><strong>Un microcontexto muy corto</strong> (unos 15 a 20 caracteres antes y después),
-        tomado del texto <strong>ya anonimizado</strong>: donde estaba el dato aparece el token.
+        <li>Un <strong>fragmento muy corto del texto ya anonimizado</strong> alrededor, en el que
+        el dato aparece sustituido por un token.
         Por ejemplo, se envía <code>"Paciente: [NAME_1], cédula"</code>, nunca el nombre real</li>
       </ul>
 
       <p><strong>b) Características del documento.</strong> Sin su contenido: número de páginas,
-      densidad de datos personales, proporción de cifras, idioma, tipo de documento (laboratorio,
-      concepto ocupacional…), departamento y, cuando el documento lo indica, el nombre de la
-      institución emisora. También algunas <strong>palabras genéricas de la estructura</strong> del
-      documento, como los encabezados de los campos.</p>
+      idioma, tipo de documento (laboratorio, concepto ocupacional…), departamento y, cuando el
+      documento lo indica, el nombre de la institución emisora, más algunas <strong>palabras
+      genéricas de su estructura</strong>.</p>
 
       <p><strong>c) Uso de la extensión.</strong> Contadores de acciones: cuántos documentos se
       protegieron, cuántas veces se abrió el panel o se pausó la protección. Solo números.</p>
@@ -340,20 +335,15 @@
       <ul>
         <li><strong>What kind of data it was</strong> (name, national ID, phone, email…),
         <strong>never its value</strong>. Of the original, only its length in characters is sent</li>
-        <li><strong>How it was detected:</strong> the type of technical signal that found it and
-        with what confidence</li>
-        <li><strong>Where it was:</strong> its position and formatting within the document (for
-        example, whether it was in a table or in which section)</li>
-        <li><strong>A very short micro-context</strong> (about 15 to 20 characters before and after), taken
-        from the <strong>already anonymized</strong> text: where the data was, the token appears.
+        <li>A <strong>very short fragment of the already anonymized text</strong> around it, in
+        which the data appears replaced by a token.
         For example we send <code>"Patient: [NAME_1], ID"</code>, never the real name</li>
       </ul>
 
-      <p><strong>b) Document characteristics.</strong> Without its content: page count, density of
-      personal data, proportion of digits, language, document type (lab report, occupational
-      assessment…), region and, when the document states it, the name of the issuing institution.
-      Also some <strong>generic structural words</strong> from the document, such as field
-      headers.</p>
+      <p><strong>b) Document characteristics.</strong> Without its content: page count, language,
+      document type (lab report, occupational assessment…), region and, when the document states it,
+      the name of the issuing institution, plus some <strong>generic structural words</strong> from
+      it.</p>
 
       <p><strong>c) Extension usage.</strong> Action counters: how many documents were protected,
       how many times the panel was opened or protection was paused. Numbers only.</p>
